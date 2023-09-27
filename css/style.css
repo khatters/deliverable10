@@ -47,10 +47,6 @@ nav li{
 
 }
 
-nav li :hover {
-  border-bottom: 1px solid black;
-}
-
 nav a{
   color: black;
   font-weight: bold;
@@ -120,49 +116,51 @@ footer{
 /* Step 1: Write selector/rule property to add an underline when
 links in the navigation are in the hover or focus state.*/
 
-
+nav a:hoover, nav a:focus{
+  text-decoration: solid
+}
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 
 .skip a {
-  top: -40px;
   position: absolute;
+  top: -40px;
 }
 
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
 
-.skip :focus{
+.skip:focus{
   top: 20px;
 }
 
 /* Step 3: Write selector/rule property to style all elements when in focus*/
 *:focus{
-  outline: 2px solid black;
+  border: 2px solid black;
 }   
 
 
 /* Step 4: Write selector/rule property to style the container */
 
 .container {
-  display: grid 1fr 5fr 1fr;
-  grid-gap: 50px;
+  display: grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  gap: 15px;
 }
 
+.container img{
+  width: 100%;
+}
 
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
 
 .container div:first-child {
-  min-width: 3;
   min-height: 500px;
   background-image: url("../images/header.jpg");
-  background-repeat: no-repeat;
+  grid-column: 1/-1;
 
 }
 
-img{
-  width: 100%;
-}
 
 /* Steps 6 and 7: Write the selector/rule properties to add place the next elements in the next
  four rows in the grid. */
@@ -170,104 +168,96 @@ img{
       /*This will be a lot of rules.... but be strategic and combine seletors*/
 
 .about{
-  width: 2/3;
+  grid-column: 2/3;
   grid-row: 2;
 }
 
 .about-image{
-  width: 3;
+  grid-column: 1/-1;
   max-height: 600px;
-  overflow: hidden;
-  grid-row: inherit;
+  grid-row: 2;
 
 }
 
 .method{
-  width: 2/3;
+  grid-column: 2/3;
   grid-row: 3;
 }
 
 .method-image{
-  width: 3;
+  grid-column: 1/-1;
   max-height: 600px;
-  overflow: hidden;
-  grid-row: inherit;
+  grid-row: 3;
 
 }
 
 .clients{
-  width: 2/3;
+  grid-column: 2/3;
   grid-row: 4;
 
 }
 
 .clients-image{
-  width: 3;
+  grid-column: 1/-1;
   max-height: 600px;
-  overflow: hidden;
-  grid-row: inherit;
+  grid-row: 4;
 
 }
 
 .contact{
-  width: 2/3;
+  grid-column: 2/3;
   grid-row: 5;
 }
 
 .contact-image{
-  width: 3;
+  grid-column: 1/-1;
   max-height: 600px;
-  overflow: hidden;
-  grid-row: inherit;
+  grid-row: 5;
 
 }
  /* Step 8: Write the selector/rule property to style the .text-block class. */
 .text-block{
-  display: block;
-  text-align: center;
-  padding: 70px 0;
-  max-height: 250px;
-  overflow: scroll;
+  align-self: center;
 }
 
 
 /* Add your media query here */
 @media screen and (min-width: 800px) {
 
-  .grid-container{
-    display: 50px auto 500px auto 50px;
+  .container{
+    grid-template-columns: 50px auto 500px auto 50px;
   }
 
   .about{
-    width: 3/5;
+    grid-column: 3/5;
   }
 
   .clients{
-    width: 3/5;
+    grid-column: 3/5;
   }
 
   .method-image{
-    width: 3/5;
+    grid-column: 3/5;
   }
 
   .contact-image{
-    width: 3/5;
+    grid-column: 3/5;
   }
 
   .method{
-    width: 2/4
+    grid-column: 2/4;
   }
 
   .about-image{
-    width: 2/4;
+    grid-column: 2/4;
   }
   
   .contact{
-    width:  2/4;
+    grid-column:  2/4;
   }
 
   .clients-image{
-    width: 2/4;
+    grid-column: 2/4;
   }
 
   nav {
@@ -278,26 +268,6 @@ img{
     padding-right: 0px;
   }
 
-  .about{
-    width: 3/5;
-  }
-
-  .clients{
-    width: 3/5;
-  }
-
-  .method-image{
-    width: 3/5;
-  }
-
-  .about-image{
-    width: 3/5;
-  }
-
-  .clients-image{
-    width: 3/5;
-  }
-  
 }
 
 
